@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+""" journuit.py : Description """
+
+__author__ = "<author>"
+__date__ = "2015/06/21"
+
+
+import argparse
+from datetime import datetime
+
+
+def main():
+    """ Default main function """
+    # parse command line options
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--sunrise', help='Sunrise Time')
+    parser.add_argument('--sunset', help='Sunset Time')
+    args = parser.parse_args()
+    
+    sunrise = datetime.strptime(args.sunrise, "%H:%M").time()
+    sunset = datetime.strptime(args.sunset, "%H:%M").time()
+
+    now = datetime.now().time()
+
+
+    if now < sunrise :
+        print("nuit")
+    elif sunrise < now and now <  sunset:
+        print("jour")
+    elif sunset < now :
+        print("nuit")
+    else:
+        print("????")
+
+
+if __name__ == "__main__":
+    main()
+
+
