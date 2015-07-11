@@ -18,8 +18,8 @@ def main():
     parser.add_argument('--sunset', help='Sunset Time')
     args = parser.parse_args()
     
-    sunrise = datetime.strptime(args.sunrise, "%H:%M").time()
-    sunset = datetime.strptime(args.sunset, "%H:%M").time()
+    sunrise = datetime.strptime(args.sunrise, "%H%M").time()
+    sunset = datetime.strptime(args.sunset, "%H%M").time()
 
     now = datetime.now().time()
 
@@ -36,5 +36,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
